@@ -16,7 +16,7 @@ include_once("./function/fetch.php")
     <h1>My Subjects</h1>
     <a href="./forms/addform.php">Add Subject</a><br/><br/>
     <table width='100%' border= 1>
-        <tr bgcolor= 'CCCCCC'>
+        <tr bgcolor= '#CCCCCC'>
             <td>ID</td>
             <td>Subject Code</td>
             <td>Subject Name</td>
@@ -25,13 +25,13 @@ include_once("./function/fetch.php")
         <?php
         while($res = mysqli_fetch_array($result)) {
             echo "<tr>";
-            echo "<tr>".$res['subject_id']."</td>";
-            echo "<tr>".$res['subject_code']."</td>";
-            echo "<tr>".$res['subject_name']."</td>";
-            echo "<tr><a href=\"./forms/editform.php?id=$res[subject_id]\">Edit</a> |
-                    <a href=\"forms/delete.php?id=$res[subject_id]\"
+            echo "<tr>".$res['Subject_ID']."</td>";
+            echo "<tr>".$res['Subject_Code']."</td>";
+            echo "<tr>".$res['Subject_Name']."</td>";
+            echo "<tr><a href=\"forms/editform.php?id=$res[Subject_ID]\">Edit</a> |
+                    <a href=\"function/delete.php?id=$res[Subject_ID]\"
                     Onclick=\"return confirm('Are you sure you want to delete?')\"> Delete</a></td>";
-        }
+            }
         ?>
     </table>
 </body>

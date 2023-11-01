@@ -1,17 +1,11 @@
-<?php 
-
+<?php
     include_once("../dbConnection/mysqlconfig_connection.php");
-
-    $id = $_GET['$id'];
-    
-    $result = mysqli_query($dbc, "SELECT * FROM tblsubject WHERE subject_id=$id");
+    $id = $_GET['id'];
+    $result = mysqli_query($dbc, "SELECT * FROM tblsubjects WHERE Subject_ID=$id");
     while($res = mysqli_fetch_array($result)) {
-        $code = $res['subject_code'];
-        $name = $res['subject_name'];
-
-
+        $code = $res['Subject_Code'];
+        $name = $res['Subject_Name'];
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +15,10 @@
     <title>Edit Data</title>
 </head>
 <body>
-<h1>Edit Subject</h1>
+    <h1>Edit Data</h1>
     <a href="../index.php">Home</a>
-    <br/><br/>
-    <form action="../function/edit.php" method="POST" name="form1">
+    <br><br>
+    <form action="../functions/edit.php" name="form1" method="POST">
         <table border="0">
             <tr>
                 <td>Subject Code</td>
@@ -35,10 +29,11 @@
                 <td><input type="text" name="name" value="<?php echo $name;?>"></td>
             </tr>
             <tr>
-                <td><input type="hidden" name="id" value=<?php echo $_GET['$id'];?>></td>
+                <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
                 <td><input type="submit" name="update" value="Update"></td>
             </tr>
         </table>
     </form>
+
 </body>
 </html>

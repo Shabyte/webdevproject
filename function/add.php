@@ -9,7 +9,7 @@
     <?php
         include_once("../dbConnection/mysqlconfig_connection.php");
 
-        if(isset($_POST['Submit'])){
+        if(isset($_POST['submit'])) {
             $code = $_POST['code'];
             $name = $_POST['name'];
 
@@ -20,15 +20,15 @@
                 if(empty($name)){
                     echo "<front color='red'>Subject Name field is empty.</font><br/>";
                 }
+                echo "<br/><a href= 'javascript:self/history.back();'>GO Back</a>";
             }
-            echo "<br/><a href= 'javascript:self/history.back();'>GO Back</a>";
+            else {
+                $result = mysqli_query($dbc, "INSERT INTO tblsubjects (Subject_Code, Subject_Name) VALUES('$code','$name')");
+                echo "<font color= 'green'>Data added successfully</font>";
+                echo "<br/><a href= '../index.php'>View Result</a>";
+            }
         }
-        else {
-            $result = mysqli_query($dbc, "INSERT INTO tblsubjects(subject_code, subject_name) VALUES('$code','$name')");
-
-            echo "<font color= 'green'>Data added successfully.";
-            echo "<br/><a href= '../index.php'>View Result</a>";
-        }
+    
     ?>
 </body>
 </html>
