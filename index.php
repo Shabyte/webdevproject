@@ -26,7 +26,7 @@ include_once("./function/fetch.php")
         while($res = mysqli_fetch_array($result)) {
             echo "<tr>";
             echo "<td>".$res['Subject_ID']."</td>";
-            echo "<tdr>".$res['Subject_Code']."</td>";
+            echo "<td>".$res['Subject_Code']."</td>";
             echo "<td>".$res['Subject_Name']."</td>";
             echo "<td>
                     <a href=\"forms/editform.php?id=$res[Subject_ID]\">Edit</a> |
