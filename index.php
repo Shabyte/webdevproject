@@ -25,10 +25,11 @@ include_once("./function/fetch.php")
         <?php
         while($res = mysqli_fetch_array($result)) {
             echo "<tr>";
-            echo "<tr>".$res['Subject_ID']."</td>";
-            echo "<tr>".$res['Subject_Code']."</td>";
-            echo "<tr>".$res['Subject_Name']."</td>";
-            echo "<tr><a href=\"forms/editform.php?id=$res[Subject_ID]\">Edit</a> |
+            echo "<td>".$res['Subject_ID']."</td>";
+            echo "<tdr>".$res['Subject_Code']."</td>";
+            echo "<td>".$res['Subject_Name']."</td>";
+            echo "<td>
+                    <a href=\"forms/editform.php?id=$res[Subject_ID]\">Edit</a> |
                     <a href=\"function/delete.php?id=$res[Subject_ID]\"
                     Onclick=\"return confirm('Are you sure you want to delete?')\"> Delete</a></td>";
             }
