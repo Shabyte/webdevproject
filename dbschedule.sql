@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2023 at 03:07 PM
+-- Generation Time: Nov 28, 2023 at 01:39 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,7 +38,27 @@ CREATE TABLE `tblsubjects` (
 --
 
 INSERT INTO `tblsubjects` (`Subject_ID`, `Subject_Code`, `Subject_Name`) VALUES
-(0, 1, 'Programming');
+(0, 1, 'Advance Database System');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblsyllabus`
+--
+
+CREATE TABLE `tblsyllabus` (
+  `syllabus_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `syllabus_code` int(11) NOT NULL,
+  `syllabus_author` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tblsyllabus`
+--
+
+INSERT INTO `tblsyllabus` (`syllabus_id`, `subject_id`, `syllabus_code`, `syllabus_author`) VALUES
+(0, 0, 1, 'CiD Kagenoh');
 
 --
 -- Indexes for dumped tables
@@ -49,6 +69,23 @@ INSERT INTO `tblsubjects` (`Subject_ID`, `Subject_Code`, `Subject_Name`) VALUES
 --
 ALTER TABLE `tblsubjects`
   ADD PRIMARY KEY (`Subject_ID`);
+
+--
+-- Indexes for table `tblsyllabus`
+--
+ALTER TABLE `tblsyllabus`
+  ADD PRIMARY KEY (`syllabus_id`),
+  ADD KEY `foreign key` (`subject_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tblsyllabus`
+--
+ALTER TABLE `tblsyllabus`
+  ADD CONSTRAINT `foreign key` FOREIGN KEY (`subject_id`) REFERENCES `tblsubjects` (`Subject_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
