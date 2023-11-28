@@ -17,7 +17,7 @@
                     <td><input type="text" name="author"></td>
                 </tr>
                 <tr>
-                    <td>subject</td>
+                    <td>Subject</td>
                     <td>
                         <select name="subject">
                             <?php 
