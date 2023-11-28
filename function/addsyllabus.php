@@ -6,9 +6,10 @@
         <?php
             include_once("../dbConnection/mysqlconfig_connection.php");
 
-            if(isset($_POST['code'])) {
-                $code = $_POST['author'];
-                $author = $_POST['subject'];
+            if(isset($_POST['Submit'])) {
+                $code = $_POST['code'];
+                $author = $_POST['author'];
+                $subject = $_POST['subject'];
 
                 if(empty($code) || empty($author)){
                     if(empty($code)){
@@ -20,7 +21,7 @@
                     echo "<br/><a href= 'javascript:self/history.back();'>GO Back</a>";
                 }
                 else {
-                    $result = mysqli_query($dbc, "INSERT INTO tblsyllabus (syllabus_code, syllabus_author) VALUES('$code','$author')");
+                    $result = mysqli_query($dbc, "INSERT INTO tblsyllabus (syllabus_code, syllabus_author, subject_id) VALUES('$code','$author','$subject')");
                     echo "<font color= 'green'>Data added successfully</font>";
                     echo "<br/><a href= '../index.php'>View Result</a>";
                 }
